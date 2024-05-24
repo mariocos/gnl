@@ -1,25 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mariocos <mariocos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/22 15:34:14 by mariocos          #+#    #+#             */
+/*   Updated: 2024/05/24 14:45:35 by mariocos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-char	*ft_strjoin(char *Backup, char *Buffer)
+char	*ft_strjoin(char *backup, char *buffer)
 {
-	char	*Ret;
-	int		Backup_Index;
-	int		Buffer_Index;
+	char	*ret;
+	int		backup_index;
+	int		buffer_index;
 
-	Backup_Index = 0;
-	Buffer_Index = 0;
-	Ret = malloc(ft_strlen(Backup) + ft_strlen(Buffer) + 1);
-	if (!Ret)
+	backup_index = 0;
+	buffer_index = 0;
+	ret = malloc(ft_strlen(backup) + ft_strlen(buffer) + 1);
+	if (!ret)
 		return (NULL);
-	while (Backup && Backup[Backup_Index] != '\0')
+	while (backup && backup[backup_index] != '\0')
 	{
-		Ret[Backup_Index] = Backup[Backup_Index];
-		Backup_Index++;
+		ret[backup_index] = backup[backup_index];
+		backup_index++;
 	}
-	while (Buffer && Buffer[Buffer_Index] != '\0')
-		Ret[Backup_Index++] = Buffer[Buffer_Index++];
-	Ret[Backup_Index] = '\0';
-	return (Ret);
+	while (buffer && buffer[buffer_index] != '\0')
+		ret[backup_index++] = buffer[buffer_index++];
+	ret[backup_index] = '\0';
+	return (ret);
 }
 
 char	*ft_strdup(char *s)
@@ -42,14 +54,14 @@ char	*ft_strdup(char *s)
 	return (dest);
 }
 
-int	ft_strlen(char	*Backup)
+int	ft_strlen(char	*backup)
 {
 	int	i;
 
 	i = 0;
-	if (!Backup)
+	if (!backup)
 		return (0);
-	while (Backup[i] != '\0')
+	while (backup[i] != '\0')
 		i++;
 	return (i);
 }
@@ -67,4 +79,3 @@ int	ft_strchr(char *s, int c)
 	}
 	return (0);
 }
-
